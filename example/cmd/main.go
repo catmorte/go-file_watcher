@@ -9,7 +9,7 @@ import (
 
 func main() {
 	files := []string{"./f1", "./f2", "./f3"}
-	s := watcher.Watch(time.Second*5, files)
+	s := watcher.Watch(time.Second*5, files...)
 
 	// for example write files async
 	go func() {
@@ -23,4 +23,6 @@ func main() {
 		changed := <-s.C
 		fmt.Println(changed)
 	}
+
 }
+

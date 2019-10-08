@@ -93,7 +93,7 @@ func fileHash(path string) []byte {
 	return []byte{}
 }
 
-func Watch(timeout time.Duration, files []string) *Session {
+func Watch(timeout time.Duration, files ...string) *Session {
 	changesChan := make(chan *WatchResult)
 	s := &Session{hashes: make(map[string][]byte), lock: &sync.Mutex{}, exit: make(chan interface{}), C: changesChan, files: make(chan []string)}
 	timer := time.NewTimer(timeout)
