@@ -124,7 +124,7 @@ func (s *Session) Stop() {
 	s.exit <- true
 }
 
-func (s *Session) UpdateSet(files []string) {
+func (s *Session) UpdateWatched(files ...string) {
 	s.lock.Lock()
 	defer s.lock.Unlock()
 	if s.closed {
